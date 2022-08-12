@@ -1,0 +1,130 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:weight@400;500;600;700,800,900,&display=swap');
+
+body{
+    background: mintcream;
+    font-family: 'Poppins', sans-serif;
+}
+
+h3{
+    font-weight: 600;
+}
+
+.custom-bg {
+    background: #1d63ff!important;
+}
+
+.card{
+    margin-bottom: 5px;
+    border-radius: 6px;
+    display: inline-block;
+    box-shadow: 0 0 20px 1px rgba(0,0,0,0.5);
+}
+
+.card-body{
+    padding: 5px;
+    color: black;
+    border-radius: 15px;
+}
+
+.form-group input{
+    padding: 0.8rem 1.2rem;
+    border-radius: 22px;
+    overflow-y: auto; 
+}
+
+.form-group textArea{
+    padding: 0.8rem 1.2rem;
+    height: 50px;
+    border-radius: 22px;
+    resize: none;
+    overflow-y: auto; 
+}
+
+.btn{
+    padding: 00.6rem 1.3rem;
+    background-color: #fff;
+    border: 2px solid #fafafa;
+    color: #1abc9c;
+    line-height: 1;
+    border-radius: 25px;
+    outline: none;
+    cursor: pointer;
+    transition: 0.3s;
+    margin: 0;
+}
+
+.btn:hover{
+    background-color: transparent;
+    color: #fff;
+}
+
+.admin .card{
+    border: 2px solid #1d63ff;
+    border-radius: 6px;
+}
+
+.admin .card-body {
+    background-color: #ffce32;
+}
+
+.admin .card-body h1 {
+    color: #1d63ff;
+}
+
+.admin .card-title {
+    background-color: black;
+}
+
+.admin .card:hover{
+    background: white;
+    cursor: pointer;
+}
+
+.container .btn {
+    background-color: #673AB7;
+    color: white;
+}
+
+.container .btn:hover {
+    background-color: transparent;
+    color: #673AB7;
+    border-color: #673AB7;
+}
+
+.container .card-body {
+    padding: 5px;
+}
+
+.list-group-item {
+    margin-left: 10px;
+    box-shadow: 0 0 20px 1px rgba(0,0,0,0.5);
+}
+
+.list-group-item.active {
+    background: #673AB7!important;
+    border-color: #673AB7!important;
+}
+
+.discount-label {
+    font-size: 10px!important;
+    color: white;
+    font-style: italic!important;
+}
+
+.card-img-top {
+    padding: 8px;
+}
+
+.btns {
+    padding: 5px;
+    border-radius: 6px;
+}
+
+
+.card-footer .btn-cart {
+    border-radius: 50%;
+    height: 50px;
+    width: 50px;
+    text-align: center;
+    align-items: center;
+}
