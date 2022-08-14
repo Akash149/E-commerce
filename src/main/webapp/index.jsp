@@ -62,10 +62,12 @@
                                     </p>
                                 </div>
                                 <div class="card-footer text-center">
-                                    <button class="btn custom-bg text-wite">Buy now</button>
-                                    <button class="btn-cart custom-bg text-white"><i class="fa-solid fa-cart-plus"></i></button>
-                                    <button class="btn custom-bg">&#8377; <%= p.getPriceAfterDiscount()%>/- 
-                                        <span class="text-secondary discount-label"><%=p.getpDiscount()%>%off</span>
+                                    <button class="btn">Buy now</button>
+                                    <button class="btn-cart custom-bg text-white" onclick="add_to_cart(<%= p.getpId()%>,'<%= p.getpName()%>',<%= p.getPriceAfterDiscount()%>)">
+                                        <i class="fa-solid fa-cart-plus"></i>
+                                    </button>
+                                    <button class="btn">&#8377; <%= p.getPriceAfterDiscount()%>/- 
+                                        <span class="text-secondary discount-label"><%=p.getpPrice()%> - <%=p.getpDiscount()%>% off  </span>
                                     </button>
                                 </div>
                             </div>
@@ -83,5 +85,7 @@
                 </div>
             </div>
         </div>
+        <%@include file="components/common_modals.jsp" %>
+        <script src="js/script.js"></script>
     </body>
 </html>

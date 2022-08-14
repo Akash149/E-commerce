@@ -30,6 +30,12 @@
                 </li>
             </ul>
             <ul class="navbar-nav ml-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="#!" data-toggle="modal" data-target="#cart">
+                        <i class="fa fa-cart-plus" style="font-size: 27px;"></i>
+                        <span class="cart-items"> </span>
+                    </a>
+                </li>
                 <%
                     if (user1 == null) {
                 %>
