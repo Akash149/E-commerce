@@ -5,7 +5,9 @@
 <nav class="navbar navbar-expand-lg navbar-dark custom-bg">
     <div class="container">
         <a class="navbar-brand" href="index.jsp">MyCart</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" 
+                data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" 
+                aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
 
@@ -18,7 +20,9 @@
                     <a class="nav-link" href="#">Link</a>
                 </li>
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <a class="nav-link dropdown-toggle" href="#" 
+                       id="navbarDropdown" role="button" data-toggle="dropdown" 
+                       aria-haspopup="true" aria-expanded="false">
                         Categories
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
@@ -44,7 +48,7 @@
                     <a class="nav-link" href="login.jsp">Login</a>
                 </li>
                 <li class="nav-item active">
-                    <a class="nav-link" href="register.jsp">Register</a>
+                    <a class="nav-link" href="login.jsp">Register</a>
                 </li>
 
                 <%
@@ -53,9 +57,10 @@
                 %>
                 <li class="nav-item active">
                 <li class="nav-item">
-                    <image src="image/<%= user1.getUserPic()%>" class="img-fluid" style="border-radius:50%; max-width: 40px;">
+                    <image src="image/<%= user1.getUserPic()%>" class="img-fluid" 
+                           style="border-radius:50%; max-width: 40px;">
                 </li>
-                <a class="nav-link" href="#!"><%= user1.getUserName()%></a>
+                <a class="nav-link" href="<%= user1.getUserType().equals("admin")?"admin.jsp":"normal.jsp" %>"><%= user1.getUserName()%></a>
                 </li>
                 <li class="nav-item active">
                     <a class="nav-link" href="LogoutServlet">Logout</a>

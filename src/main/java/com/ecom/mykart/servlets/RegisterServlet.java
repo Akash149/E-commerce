@@ -46,7 +46,7 @@ public class RegisterServlet extends HttpServlet {
                 
                 HttpSession httpSession = request.getSession();
                 httpSession.setAttribute("message","Registration Successfull !!" + userId);
-                response.sendRedirect("register.jsp");
+                response.sendRedirect("login.jsp");
                 return;
                 
             } catch(Exception e) {

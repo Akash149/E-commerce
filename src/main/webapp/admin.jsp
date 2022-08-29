@@ -1,3 +1,5 @@
+<%@page import="java.util.Map"%>
+<%@page import="com.ecom.mykart.helper.Helpers"%>
 <%@page import="java.util.List"%>
 <%@page import="com.ecom.mykart.entities.Category"%>
 <%@page import="com.ecom.mykart.dao.CategoryDao"%>
@@ -18,6 +20,15 @@
         }
     }
 %>
+
+<%
+    CategoryDao cdao = new CategoryDao(FactoryProvider.getFactory());
+    List<Category> list = cdao.getCategories();
+    
+    //getting product or user count......
+    Map<String,Long> m = Helpers.getCounts(FactoryProvider.getFactory());
+%>
+
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -42,7 +53,7 @@
                                 <img style="max-width: 80px; max-height: 100px; " class="img-fluid mt-2 rounded-circle" src="image/group.png" alt="user_icon">
                             </div>
                             <h1 class="text-uppercase text-muted">Users</h1>
-                            <h1>200</h1>
+                            <h1><%= m.get("productCount") %></h1>
                         </div>
                     </div>
                 </div>
@@ -53,7 +64,7 @@
                                 <img style="max-width: 80px; max-height: 100px; " class="img-fluid mt-2 rounded-circle" src="image/list.png" alt="user_icon">
                             </div>
                             <h1 class="text-uppercase text-muted">Categories</h1>
-                            <h1>40</h1>
+                            <h1><%= list.size() %></h1>
                         </div>
                     </div>
                 </div>
@@ -64,7 +75,7 @@
                                 <img style="max-width: 80px; max-height: 100px; " class="img-fluid mt-2 rounded-circle" src="image/box.png" alt="user_icon">
                             </div>
                             <h1 class="text-uppercase text-muted">Products</h1>
-                            <h1>500</h1>
+                            <h1><%= m.get("productCount") %></h1>
                         </div>
                     </div>
                 </div>
@@ -80,7 +91,6 @@
                             </div>
                             <p class="mt-2">Click here to add new category</p>
                             <h1 class="text-uppercase text-muted">Add Category</h1>
-                            <h1>200</h1>
                         </div>
                     </div>
                 </div>
@@ -92,7 +102,6 @@
                             </div>
                             <p class="mt-2">Click here to add new product</p>
                             <h1 class="text-uppercase text-muted">Add product</h1>
-                            <h1>200</h1>
                         </div>
                     </div>
                 </div>
@@ -110,9 +119,9 @@
                         </div>
                         <div class="modal-body">
                             <form action="ProductOperationServlet" method="post">
-                                
+
                                 <input type="hidden" name="operation" value="addcategory">
-                                
+
                                 <div class="form-group">
                                     <input type="text" required="true" class="form-control" name="catTitle" placeholder="Enter category title" required/>
                                 </div>
@@ -129,9 +138,9 @@
                 </div>
             </div>
             <!--            End category model-->
-            
+
             <!--            Add product Modal-->
-             <div class="modal fade" id="add-product-Modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal fade" id="add-product-Modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div class="modal-dialog modal-lg" role="document">
                     <div class="modal-content">
                         <div class="modal-header custom-bg text-white">
@@ -142,9 +151,9 @@
                         </div>
                         <div class="modal-body">
                             <form action="ProductOperationServlet" method="post" enctype="multipart/form-data">
-                                
+
                                 <input type="hidden" name="operation" value="addproduct">
-                                
+
                                 <div class="form-group">
                                     <input type="text" required="true" class="form-control" name="pName" placeholder="Enter product name"/>
                                 </div>
@@ -160,16 +169,12 @@
                                 <div class="form-group">
                                     <input type="number" required="true" class="form-control" name="pQuantity" placeholder="Enter product quantity"/>
                                 </div>
-                                <%
-                                    CategoryDao cdao = new CategoryDao(FactoryProvider.getFactory());
-                                    List<Category> list = cdao.getCategories();
-                                %>
+
                                 <div class="form-group">
                                     <select name="catId" class="form-control" id="">
-                                        <%
-                                            for(Category c:list) {
+                                        <%                                            for (Category c : list) {
                                         %>
-                                        <option value="<%= c.getCategoryId() %>"><%= c.getCategoryTitle() %></option>
+                                        <option value="<%= c.getCategoryId()%>"><%= c.getCategoryTitle()%></option>
                                         <%
                                             }
                                         %>
@@ -179,7 +184,7 @@
                                     <label for="">Select picture of Product</label><br>
                                     <input type="file" name="pPic" required="true"/>
                                 </div>
-                                
+
                                 <div class="container text-center">
                                     <button type="submit" class="btn">Add Product</button>
                                     <button type="button" class="btn" data-dismiss="modal">Close</button>
@@ -190,5 +195,6 @@
                 </div>
             </div>
             <!--            End product modal-->
+            <%@include file="components/common_modals.jsp" %>
     </body>
 </html>
